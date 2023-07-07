@@ -15,6 +15,7 @@ export class CreateComponent implements OnInit {
 
   _genreList: Genre[] = [];
   allGenres: any[] = [];
+  errors: any =""
 
   creationForm = new FormGroup({
     movie: new FormControl(''),
@@ -73,8 +74,17 @@ export class CreateComponent implements OnInit {
     };
 
     const res = this.apiService.createRecord(body).subscribe((response) => {
+      if(response.hasOwnProperty("errors")){
+        this.errors = response["message"]
+        console.log(this.errors)
+        setTimeout(()=> {
+          this.errors = ""
+        },3000)
       console.log(response);
+    } else {
       this.router.navigate(['/Catalog']);
-    });
+    }
+  })
+
   }
 }

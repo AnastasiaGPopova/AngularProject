@@ -20,6 +20,7 @@ export class EditComponent implements OnInit {
   creationForm!: FormGroup;
   sub:any
   id:any
+  errors:any
 
   currentPost: Post = {
     movieName: "",
@@ -147,15 +148,20 @@ onchange(){
     console.log(body.genre)
 
 
-        const res = this.apiService.editRecord(this.id, body).subscribe((response) => {
-          console.log(`--------Edit response---------`)
-          console.log(response)
+        const res = this.apiService.editRecord(this.id, body).subscribe((response) =>{
+          if(response.hasOwnProperty("errors")){
+            this.errors = response["message"]
+            console.log(this.errors)
+            setTimeout(()=> {
+              this.errors = ""
+            },3000)
+          console.log(response);
+        } else {
           this.router.navigate([`/movies/${this.currentPost._id}`])
-        })
-
-      console.log(res)
-    }
+        }
+      })
 
 
   }
 
+}

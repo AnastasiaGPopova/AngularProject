@@ -155,7 +155,7 @@ main{
     justify-content: flex-start;
     align-items: center;
     width: 250px;
-    height: 300px;
+    height: 320px;
     background-color: gray;
     opacity: 0.8;
     box-shadow: 0 0 10px #00000070;
@@ -173,9 +173,9 @@ main{
   
   .record p{
     box-sizing: border-box;
-    text-align: left;
+    text-align: center;
     font-size: 1rem;
-    padding: 0;
+    padding: 0rem;
     margin: 0;
     
   }
@@ -192,14 +192,14 @@ main{
   
   
   .text{
-    transform: translate(1px, -228px);
+    transform: translate(0px, -236px);
     font-size: 1.2rem;
     top: 0;
     left: 0;
     /* background: rgb(74, 67, 92); */
     background: #CA2313;
     width: 220px;
-    height: 220px;
+    height: 200px;
     padding: 7rem 0;
     display: flex;
     justify-content: center;

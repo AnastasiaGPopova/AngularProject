@@ -19,6 +19,7 @@ import { DetailsComponent } from './details/details.component';
 import { CommentComponent } from './comment/comment.component';
 import { EditComponent } from './edit/edit.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ErrorBoxComponent } from './error-box/error-box.component';
 
 
 
@@ -51,6 +52,7 @@ const appRoute: Routes = [
     CommentComponent,
     EditComponent,
     ProfileComponent,
+    ErrorBoxComponent,
   ],
   imports: [
     BrowserModule,

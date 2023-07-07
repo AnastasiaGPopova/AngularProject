@@ -22,7 +22,7 @@ export class AuthServiceService {
   }
 
 
-  login(email:string, passowrd:string){
+  login(email:string | null, passowrd:string | null){
     return this.apiService.login(email,passowrd).pipe(
       tap((response:any) => {
         if(!response.hasOwnProperty('errors')){
@@ -44,7 +44,7 @@ export class AuthServiceService {
   }
 
 
-  register(email:string, password:string, rePassword:string, gender:string){
+  register(email:string | null, password:string | null, rePassword:string | null, gender:string | null) {
     return this.apiService.register(email,password, rePassword, gender).pipe(
       tap((response:any) => {
         if(!response.hasOwnProperty('errors')){

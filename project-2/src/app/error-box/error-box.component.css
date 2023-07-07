@@ -1,0 +1,27 @@
+.errorMsg{
+    position: absolute;
+    width: 200px;
+    height: auto;
+    border: 3px solid #CA2313;
+    border-style: dashed;
+    background-color:transparent;
+    transform: translate(1300px, 250px);
+    padding: 10px;
+    margin: 20px;
+    box-sizing: border-box;
+    display: block;
+    justify-content: center;
+    text-align: center;
+}
+
+.errorMsg h1{
+    color: white;
+    padding: 0px;
+}
+.errorMsg p{
+    color: white;
+    padding: 3px;
+    word-break: normal;
+    font-size: 20px;
+    font-style: italic;
+}

@@ -12,6 +12,8 @@ export class LoginComponent {
 
   constructor(private authService: AuthServiceService, private router: Router){}
 
+  errors:[] = []
+
 
   loginForm  = new FormGroup({
     email: new FormControl(""),
@@ -29,18 +31,19 @@ export class LoginComponent {
     let email = this.loginForm.controls.email.value;
     let password = this.loginForm.controls.password.value
 
-    console.log(email)
-
-    if(email != null && password){
-      const res=  this.authService.login(email, password).subscribe((response) => {
+      const res =  this.authService.login(email, password).subscribe((response) => {
+        if(response.hasOwnProperty("errors")){
+          this.errors = response["message"]
+          console.log(this.errors)
+          setTimeout(()=> {
+            this.errors = []
+          },3000)
         console.log(response);
-        this.router.navigate(['/Home'])
-      });
-      console.log(res)
-    }
-
-
-  }
-
+      } else {
+        this.router.navigate(['/Home']);
+      }
+    })
+  
+}
 
 }

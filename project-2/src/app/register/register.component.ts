@@ -12,6 +12,8 @@ export class RegisterComponent {
 
   constructor(private authService: AuthServiceService, private router: Router){}
 
+  errors:[] = []
+
 
   registrationForm  = new FormGroup({
     email: new FormControl(""),
@@ -34,15 +36,20 @@ export class RegisterComponent {
 
     console.log(email)
 
-    if(email != null && password !=null && rePassword != null && gender !=null){
+   
       const res=  this.authService.register(email, password, rePassword, gender).subscribe((response) => {
+        if(response.hasOwnProperty("errors")){
+          this.errors = response["message"]
+          console.log(this.errors)
+          setTimeout(()=> {
+            this.errors = []
+          },3000)
         console.log(response);
-        this.router.navigate(["/Home"])
-      });
-      console.log(res)
-    }
-
-
+      } else {
+        this.router.navigate(['/Home']);
+      }
+    })
+    
   }
 
 

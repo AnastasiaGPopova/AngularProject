@@ -294,6 +294,7 @@
   .comments{
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: linear-gradient(rgba(71, 68, 68, 0.5), rgba(43, 42, 42, 0.5));
   
   }

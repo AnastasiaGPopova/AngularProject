@@ -36,7 +36,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string) {
+  login(email: string | null, password: string | null) {
     const answer = this.http.post(environment.appUrl + '/users/login', {
       email,
       password,
@@ -47,10 +47,10 @@ export class ApiService {
   }
 
   register(
-    email: string,
-    password: string,
-    rePassword: string,
-    gender: string
+    email: string | null,
+    password: string | null,
+    rePassword: string | null,
+    gender: string | null
   ) {
     const answer = this.http.post(environment.appUrl + '/users/register', {
       email,

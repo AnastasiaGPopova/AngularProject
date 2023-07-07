@@ -15,6 +15,7 @@ export interface Post {
   createdAt: string | null;
   updatedAt: string | null;
   __v?: number | null;
+  raiting?:number|null;
 }
 
 export interface _ownerId {
@@ -72,7 +73,7 @@ export interface imdbI {
 }
 
 export interface User {
-  email: string;
+  email: string | null;
   gender: string;
   password: string;
   __v: number;

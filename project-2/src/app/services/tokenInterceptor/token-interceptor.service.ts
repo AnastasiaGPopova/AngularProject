@@ -1,6 +1,6 @@
 import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { AuthServiceService } from '../authService/auth-service.service';
 
 @Injectable({
@@ -15,13 +15,24 @@ export class TokenInterceptorService implements HttpInterceptor{
     if(realToken != null){
       req = req.clone({
         headers: req.headers.set('X-Authorization', realToken)
-  
       })
-  
-
     }
 
-    return next.handle(req)
+    return next.handle(req).pipe(
+      catchError(errorData => {
+        if(errorData.status === 401){
+          this.authService.logout()
+        }
+
+        if(errorData.message.includes("Unknown Error")){
+          alert(`Our Server is currently down! Please try again later!`)
+        } else {
+          alert(errorData.message)
+        }
+
+        return throwError(errorData)
+      })
+    )
   }
 }
 
