@@ -109,12 +109,10 @@ export class DetailsComponent implements OnInit, OnChanges {
     this.currentPost = {... this.currentPost, wishingList: this.currentPost.wishingList}
     let newBody = {...this.currentPost}
 
-    this.apiService.editRecord(this.id, newBody).subscribe(update=>{
-      this.apiService._isWished$.next(true)
+    this.apiService.getWished(this.id, newBody).subscribe(update=>{
       this.apiService.isWished$.subscribe()
+      this.apiService.refreshNeeded.subscribe()
       this.cd.detectChanges()
-      this.apiService._refreshNeeded$.next(update);
-      
       console.log(update)
       this.ngOnInit()
     })
@@ -141,8 +139,7 @@ export class DetailsComponent implements OnInit, OnChanges {
    let newBody = {...this.currentPost}
 
    this.apiService.getVoted(this.id, newBody).subscribe(update=>{
-    this.apiService._refreshNeeded$.next(update);
-    this.apiService._isVoted$.next(true)
+    this.apiService.refreshNeeded.subscribe();
     this.apiService.isVoted$.subscribe()
     console.log(update)
     this.ngOnInit()
