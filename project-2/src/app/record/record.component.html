@@ -1,0 +1,11 @@
+<div class="record">
+    <div class="record-background" *ngFor="let item of postssss">
+        <h5>{{item.movieName}}</h5>
+        <p>{{item.year}}</p>
+        <br>
+        <img src={{item.imageUrl}}
+            alt="" />
+            <p>Created on:</p>
+            <a href="/movies/{{item._id}}" class="text"><span></span>Details</a>
+    </div>
+</div>
