@@ -20,6 +20,7 @@ import { CommentComponent } from './comment/comment.component';
 import { EditComponent } from './edit/edit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ErrorBoxComponent } from './error-box/error-box.component';
+import { IsAuthenticatedGuard } from './is-autenticated.guard';
 
 
 
@@ -29,10 +30,10 @@ const appRoute: Routes = [
   {path: 'Catalog', component: CatalogComponent},
   {path: 'Register', component: RegisterComponent},
   {path: 'Login', component: LoginComponent},
-  {path: 'Add-review', component: CreateComponent},
+  {path: 'Add-review', component: CreateComponent, canActivate: [IsAuthenticatedGuard]},
   {path: 'movies/:recordId', component: DetailsComponent},
-  {path: 'edit/:recordId', component: EditComponent},
-  {path: 'MyProfile', component: ProfileComponent},
+  {path: 'edit/:recordId', component: EditComponent, canActivate: [IsAuthenticatedGuard]},
+  {path: 'MyProfile', component: ProfileComponent, canActivate: [IsAuthenticatedGuard]},
 
 ]
 
