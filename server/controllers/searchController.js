@@ -104,6 +104,7 @@ router.post("/", async (req, res) => {
 
     if(year === "all" && genres !=="all" && searchItem !== "all"){
         const result = await recordManager.itemandGenre(searchItem, genres).clone()
+        console.log(`--------item + genre-------------`)
         console.log(result)
         console.log(genres)
         return res.json(result)

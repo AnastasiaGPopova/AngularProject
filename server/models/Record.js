@@ -59,6 +59,12 @@ const recordSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'User'
     }],
+    raiting: {
+        type: Number,
+        required: false,
+        default: 0
+        //minLength: [3, "Too short! Genre should be at least 3 characters !"]
+    }, 
     wishingList:[{
         type: mongoose.Types.ObjectId,
         ref: 'User'

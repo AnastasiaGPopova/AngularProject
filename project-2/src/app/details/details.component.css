@@ -24,6 +24,7 @@
     border-radius: 30px;
     margin: 0 auto;
     box-shadow: 0 0 10px #00000070;
+    padding: 1rem;
   }
   
   .details-card-image {
@@ -33,7 +34,7 @@
   
   .details-card-image > img {
     width: 460px;
-    height: 460px;
+    height: auto;
     position: absolute;
     right: 0;
     left: 0;

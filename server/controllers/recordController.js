@@ -70,7 +70,7 @@ router.put("/:recordId", async (req, res) => {
   //const {........} = req.body
   let isOwner = true;
   let currentRecord = await recordManager.getOne(req.params.recordId);
-  const {movieName, artist, director, year, imageUrl, description, genre, likes, wishingList, likedBy} = req.body;
+  const {movieName, artist, director, year, imageUrl, description, genre, likes, wishingList, likedBy, raiting} = req.body;
   console.log(likes)
   console.log(wishingList)
 
@@ -80,7 +80,7 @@ router.put("/:recordId", async (req, res) => {
         throw new Error (`All fields are requiered!`)
       }
 
-    const updatredRecord =  await recordManager.update(req.params.recordId, {movieName, artist, director, year, imageUrl, description, genre, likes, wishingList, likedBy});
+    const updatredRecord =  await recordManager.update(req.params.recordId, {movieName, artist, director, year, imageUrl, description, genre, likes, wishingList, likedBy, raiting});
     res.json(updatredRecord);
     console.log(updatredRecord)
     } catch (error) {

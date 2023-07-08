@@ -16,6 +16,7 @@ export class CatalogComponent implements OnInit {
   constructor(public apiService: ApiService) {}
 
   searchForm: any = {};
+  raiting:any
   _genreOptions: Option[] = [];
   _yearOptions: Option[] = [];
   _gnrSelected!: string;
@@ -32,6 +33,15 @@ export class CatalogComponent implements OnInit {
       this.allPostsCatalog = posts;
       this.apiService._refreshNeeded$.next(posts);
     });
+
+
+    for(let item of this.allPostsCatalog){
+      let likes = item.likes;
+      let liked = item.likedBy?.length;
+      this.raiting = (likes / liked).toFixed(1);
+      item.raiting = this.raiting
+      console.log(this.allPostsCatalog);
+    }
 
     this.searchForm = new FormGroup({
       movie: new FormControl(''),

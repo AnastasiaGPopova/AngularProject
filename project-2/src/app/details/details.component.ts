@@ -10,7 +10,7 @@ import { Post, _ownerId, Comment } from 'src/types/api-types';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthServiceService } from '../services/authService/auth-service.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CatalogComponent } from '../catalog/catalog.component';
+
 
 @Component({
   selector: 'app-details',
@@ -122,8 +122,7 @@ export class DetailsComponent implements OnInit, OnChanges {
 
   voteFunc() {
     let currentUser: string | null = localStorage.getItem('userId');
-    this.currentPost.likedBy?.push(currentUser);
-
+    
     let raitingStar = this.voteForm.controls.rate.value;
 
     if (raitingStar == '') {
@@ -134,10 +133,13 @@ export class DetailsComponent implements OnInit, OnChanges {
 
     let oldValue: any = Number(this.currentPost.likes);
     let newValue = oldValue + Number(raitingStar);
+    this.currentPost.likedBy?.push(currentUser);
+    let newRaiting = newValue / this.currentPost.likedBy.length
     this.currentPost = {
       ...this.currentPost,
       likes: newValue,
       likedBy: this.currentPost.likedBy,
+      raiting: newRaiting
     };
     let newBody = { ...this.currentPost };
 

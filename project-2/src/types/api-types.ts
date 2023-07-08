@@ -8,8 +8,8 @@ export interface Post {
   year: any;
   imageUrl: string | null;
   genre: string | null;
-  likes: number | null;
-  likedBy: any[] | null;
+  likes: number;
+  likedBy: any[];
   wishingList: any[] | null;
   _ownerId?: _ownerId;
   createdAt: string | null;
