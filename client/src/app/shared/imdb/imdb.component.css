@@ -1,0 +1,365 @@
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html{
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
+/* Homepage style */
+
+main{
+    padding: 6rem;
+  }
+  
+  /*BUTTONS STYLE*/
+  button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    z-index: 0;
+    font-weight: bold;
+    border: 3px solid #CA2313;
+    background: transparent;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .button-span{
+    background: #CA2313;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+  }
+  
+  button:hover span{
+    width: 100%;
+  }
+  
+  button:hover{
+    border: none
+  }
+  
+  
+  .top-section{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .record{
+    width: 250px;
+    height: 300px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: white;
+  
+  }
+  
+  .record-background{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 250px;
+    height: 300px;
+    background-color: gray;
+    opacity: 0.8;
+    box-shadow: 0 0 10px #00000070;
+    border-radius: 30px;
+  }
+  
+  .record img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    transition: 0.5s ease;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .record p{
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    
+  }
+  
+  .record h5{
+    text-align: left;
+    font-size: 1.2rem;
+    opacity: 1;
+    padding: 0;
+    margin: 0;
+    padding-top: 1rem;
+  }
+  
+  
+  
+  .text{
+    transform: translate(1px, -228px);
+    font-size: 1.2rem;
+    top: 0;
+    left: 0;
+    /* background: rgb(74, 67, 92); */
+    background: #CA2313;
+    width: 220px;
+    height: 220px;
+    padding: 7rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    opacity: 0.7;
+    text-decoration: none;
+    visibility: hidden;
+    font-size: 2rem;
+  
+  }
+  
+  .record:hover .text{
+    visibility: visible;
+    /* transform: translateX(-10px); */
+  }
+  
+  .record:hover img{
+    transform: scale(1.1);
+  }
+  
+  .bottom-section{
+    padding: 4rem;
+    padding-top: 5rem;;
+    display: flex;
+    justify-content: space-between;
+    gap: 150px
+  }
+  
+  
+ .right-bottom{
+    flex: 0 0 50%;
+    display: flex
+  }
+
+ 
+  
+  
+  .bottom-section h1{
+    color: white;
+    font-size: 5rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-bottom: 1rem;
+  }
+  
+  .bottom-section h1 span{
+    color: #CA2313 ;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .bottom-section p{
+    color: white;
+    width: 50ch;
+    font-size: 1.2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .right-bottom h3{
+    color: white;
+  }
+  
+  .right-bottom ul{
+    padding-left: 12rem;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+  
+  }
+  
+  .right-bottom ul li img{
+    border-radius: 2rem;
+    width: 100px;
+    
+  }
+  
+  .right-bottom ul p{
+    width: 20ch;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .right-bottom ul li{
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid white;
+    align-items: center;
+    text-align: center;
+  }
+  
+  
+  
+  
+  
+  /* NO RECORD */
+  .create-button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    z-index: 0;
+    font-weight: bold;
+    border: 3px solid #5aa8a0;
+    background: transparent;
+    transition: 0.5s;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .no-entries{
+    background: #5aa8a0;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+  }
+  
+  .create-button:hover .no-entries{
+    width: 100%;
+  }
+  
+  .create-button:hover{
+    border: none;
+    background-color: #CA2313;
+  }
+  
+  .no-record{
+    text-align: right;
+  }
+  
+  
+  
+  .buttonReset{
+    width: 50px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    z-index: 0;
+    font-weight: bold;
+    border: 3px solid #5aa8a0;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  
+  }

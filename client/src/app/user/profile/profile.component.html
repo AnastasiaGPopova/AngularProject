@@ -1,0 +1,58 @@
+<section class="profilepage">
+    <div class="profilecard">
+      <div class="topsection">
+            <div class="pic">
+
+                <div *ngIf="isFemale; else elseBlock">
+                    <img
+                    src="https://cdn.stockmediaserver.com/smsimg30//PV/IsignstockContributors/ISS_13301_02713.jpg?token=GAvWiMeh6UzN3GrGgChDFro63w2Fp6yG2jhG0bdv7RM&class=pv&smss=52&expires=4102358400"
+                    alt=""
+                    />
+                </div>
+
+                <ng-template #elseBlock>
+                    <img
+                    src="https://st.depositphotos.com/5891300/57446/v/600/depositphotos_574462682-stock-illustration-old-fashioned-disc-jockey-mixer.jpg"
+                    alt=""
+                />
+                </ng-template>
+
+        </div>
+        
+        <div class="email">{{currentUser.email}}</div>
+      </div>
+
+      <div class="bottomsection">
+        <h2>My Reviews</h2>
+      </div>
+    </div>
+
+    <div class="wishbooks">
+        <app-movie [postssss]="myRecords"></app-movie>
+
+
+        <!-- <h2 className={styles.norecords}>
+          There are no records posted yet...
+        </h2>
+     -->
+    </div>
+
+    <div>
+      <div class="bottomsection2">
+        <h2>Wish List</h2>
+      </div>
+    </div>
+    <div class="wishbooks">
+        <app-movie [postssss]="wishList"></app-movie>
+
+
+
+      <!-- {wishList.length === 0 && (
+        <h2 className={styles.norecords}>
+          There are no records in the wishing list yet...
+        </h2>
+      )} -->
+    </div>
+
+</section>
+

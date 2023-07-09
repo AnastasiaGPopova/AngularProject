@@ -1,0 +1,69 @@
+<main class="container">
+    <div class="searchbox">
+        <div class="search-options">
+            <div class="searchWord"  [formGroup]="searchForm">
+                <label htmlFor="Movie">Movie or Artist</label>
+                <input type="text" id="movie" name="movie" placeholder="Write movie or artist..."
+                formControlName="movie">
+            </div>
+
+            <div class="input-field">
+                <div class="input-select">
+                    <label htmlFor="genre">Genre</label>
+                    <select [(ngModel)]="_gnrSelected ">
+                        <option *ngFor="let item of _genreOptions" [value]="item.name">
+                            {{item.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="input-select">
+                    <label htmlFor="year">Year</label>
+                    <select [(ngModel)]="_yrSelected ">
+                        <option *ngFor="let item of _yearOptions" [value]="item.name">
+                            {{item.name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-buttons">
+            <div class="input-field">
+                <div class="group-btn">
+                    <button class="buttonReset" (click)="resetClick()"><span class="searchAdvanced"></span>RESET</button>
+                    <button class="buttonReset" (click)="searchClick()"><span class="searchAdvanced"></span>SEARCH</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<section class="page-section">
+
+        <div class="sort-board">
+            <label>Sort by:</label>
+            <ul  role="list">
+                <li><button class="buttonReset"
+                    (click)="sortByYear()"><span class="searchAdvanced"></span>YEAR ⬇</button></li>
+                <li><button class="buttonReset"
+                    (click)="sortByRaiting()"><span class="searchAdvanced"></span>RAITING ⬇</button></li>
+                <li><button class="buttonReset"
+                    (click)="sortRecently()"><span class="searchAdvanced"></span>RECENTLY ADDED</button></li>
+                <li><button class="buttonReset"
+                    (click)="sortAlphabetical()"><span class="searchAdvanced"></span>[A-Z]</button></li>
+            </ul>
+        </div>
+
+
+        <div class="catalog">
+            <app-movie [postssss]="allPostsCatalog"></app-movie>
+
+        </div>
+    
+</section>
+</main>
+

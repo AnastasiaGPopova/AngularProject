@@ -1,0 +1,263 @@
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html{
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
+/* Homepage style */
+
+main{
+    padding: 6rem;
+  }
+  
+  /*BUTTONS STYLE*/
+  .a-button{
+    text-decoration: none;
+    width: 200px;
+    padding: 15px 35px;
+    text-align: center;
+    margin: 10px 10px;
+    border-radius: 25px;
+    z-index: 0;
+    font-weight: bold;
+    border: 3px solid #CA2313;
+    background: transparent;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .button-span{
+    background: #CA2313;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+  }
+  
+  .a-button:hover span{
+    width: 100%;
+  }
+  
+  .a-button:hover{
+    border: none
+  }
+  
+  
+  .top-section{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+
+  
+  .bottom-section{
+    padding: 4rem;
+    padding-top: 1rem;;
+    display: flex;
+    justify-content: space-between;
+    gap: 150px
+  }
+  
+  
+  .bottom-section .right-bottom{
+    flex: 0 2 40%
+  }
+
+  .bottom-section .left-bottom p{
+    margin-bottom: 1rem;
+  }
+ 
+  
+  
+  .bottom-section h1{
+    color: white;
+    font-size: 5rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-bottom: 0.5rem;
+  }
+  
+  .bottom-section h1 span{
+    color: #CA2313 ;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .bottom-section p{
+    color: white;
+    width: 50ch;
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+  }
+  
+  .right-bottom h3{
+    color: white;
+  }
+  
+  .right-bottom ul{
+    padding-left: 12rem;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+  
+  }
+  
+  .right-bottom ul li img{
+    border-radius: 2rem;
+    width: 100px;
+    
+  }
+  
+  .right-bottom ul p{
+    width: 20ch;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .right-bottom ul li{
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid white;
+    align-items: center;
+    text-align: center;
+  }
+  
+  
+  
+  
+  
+  /* NO RECORD */
+  .create-button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    z-index: 0;
+    font-weight: bold;
+    border: 3px solid #5aa8a0;
+    background: transparent;
+    transition: 0.5s;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .no-entries{
+    background: #5aa8a0;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+  }
+  
+
+  
+
+  
+  .no-record{
+    text-align: right;
+  }
+  
+  
