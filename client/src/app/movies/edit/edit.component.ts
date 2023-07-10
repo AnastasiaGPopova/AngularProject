@@ -62,19 +62,20 @@ export class EditComponent implements OnInit {
     this.apiService.getItemById(this.id).subscribe((post) => {
       this.currentPost = post
       console.log(this.currentPost.genre)
-      console.log(this.currentPost)
-
-      this.getGenres(this.currentPost.genre)
-
-      this.creationForm.setValue({
-        movie:  this.currentPost.movieName,
-        cast: this.currentPost.artist,
-        director: this.currentPost.director,
-        year: this.currentPost.year,
-        imageUrl: this.currentPost.imageUrl,
-        description: this.currentPost.description,
-     })
+      console.log(this.currentPost.movieName)
      })  
+
+
+    //  this.getGenres(this.currentPost.genre)
+
+     this.creationForm.setValue({
+       movie:  this.currentPost.movieName,
+       cast: this.currentPost.artist,
+       director: this.currentPost.director,
+       year: this.currentPost.year,
+       imageUrl: this.currentPost.imageUrl,
+       description: this.currentPost.description,
+    })
 
 }
 
