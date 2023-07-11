@@ -34,7 +34,8 @@
   
   .details-card-image > img {
     width: 460px;
-    height: auto;
+    height: 500px;
+    object-fit: cover;
     position: absolute;
     right: 0;
     left: 0;

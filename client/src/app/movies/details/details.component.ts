@@ -96,6 +96,7 @@ export class DetailsComponent implements OnInit, OnChanges {
   }
 
   wishFunc() {
+    debugger
     let currentUser: string | null = localStorage.getItem('userId');
     this.currentPost.wishingList?.push(currentUser);
     this.currentPost = {
@@ -109,7 +110,6 @@ export class DetailsComponent implements OnInit, OnChanges {
       this.apiService.refreshNeeded.subscribe();
       this.cd.detectChanges();
       console.log(update);
-      this.ngOnInit();
     });
   }
 
@@ -139,7 +139,7 @@ export class DetailsComponent implements OnInit, OnChanges {
     this.apiService.getVoted(this.id, newBody).subscribe((update) => {
       this.apiService.refreshNeeded.subscribe();
       this.apiService.isVoted$.subscribe();
-      console.log(update);
+      this.cd.detectChanges()
       this.ngOnInit();
     });
   }
@@ -177,7 +177,7 @@ export class DetailsComponent implements OnInit, OnChanges {
     if (choise) {
       this.apiService.deleteRecord(this.id).subscribe((post) => {
         console.log(post);
-        this.apiService._refreshNeeded$.next(post);
+        this.apiService.refreshNeeded.subscribe();
         this.router.navigate(['/Catalog']);
       });
     }

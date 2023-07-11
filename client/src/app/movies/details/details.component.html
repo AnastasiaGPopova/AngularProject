@@ -16,7 +16,7 @@
                 <div class="edit-edit" *ngIf="apiService.isOwner$ | async ; else elseBlock">
                 <!-- Only for registered user and author of the review -->
                     <a href="/edit/{{currentPost._id}}"class="btn-edit">Edit</a>
-                    <a href="/Catalog" class="btn-delete" (click)="onDeleteClick()">Delete</a>
+                    <button class="btn-delete" (click)="onDeleteClick()">Delete TEST!</button>
                 </div>
 
                 <ng-template #elseBlock>
@@ -41,7 +41,8 @@
                                     <label for="star1" title="text">1 star</label>
                                 </div>
 
-                                <a href="/movies/{{currentPost._id}}" class="btn-vote" (click)="voteFunc()"><i class="fa-regular fa-heart"></i> Vote!</a>
+                                <button class="btn-vote" (click)="voteFunc()">Vote TEST!</button>
+                                <!-- <a href="/movies/{{currentPost._id}}" class="btn-vote" (click)="voteFunc()"><i class="fa-regular fa-heart"></i> Vote!</a> -->
                             </ng-template>
 
                             <div class="wishes" *ngIf="apiService.isWished$ | async ; else elseBlock3">
@@ -49,7 +50,8 @@
                             </div>
 
                             <ng-template #elseBlock3>
-                                <a href="/movies/{{currentPost._id}}" class="btn-wish" (click)="wishFunc()"><i class="fa-regular fa-heart"></i> Wish to watch!</a>
+                                <button class="btn-wish" (click)="wishFunc()">WISCH TEST!</button>
+                                <!-- <a href="/movies/{{currentPost._id}}" class="btn-wish" (click)="wishFunc()"><i class="fa-regular fa-heart"></i> Wish to watch!</a> -->
                             </ng-template>
                     </div>
                 </ng-template>

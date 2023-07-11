@@ -119,9 +119,11 @@ export class ApiService {
   }
 
   deleteRecord(id: any) {
-    const res = this.http.delete(environment.appUrl + '/movies/' + id);
-    this.daletedId = id;
-    return res;
+    return this.http.delete(environment.appUrl + '/movies/' + id).pipe(
+      tap(() => {
+        this.daletedId = id;
+        this._refreshNeeded$.next("deleted")
+      }))
   }
 
   addComment(data: Comment) {
