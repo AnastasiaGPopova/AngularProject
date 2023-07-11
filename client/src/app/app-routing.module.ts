@@ -8,6 +8,7 @@ import { CatalogComponent } from './main/catalog/catalog.component';
 import { CreateComponent } from './movies/create/create.component';
 import { DetailsComponent } from './movies/details/details.component';
 import { EditComponent } from './movies/edit/edit.component';
+import { IsAuthenticatedGuard } from './is-authenticated.guard';
 
 
 const appRoute: Routes = [
@@ -16,10 +17,10 @@ const appRoute: Routes = [
   {path: 'Catalog', component: CatalogComponent},
   {path: 'Register', component: RegisterComponent},
   {path: 'Login', component: LoginComponent},
-  {path: 'Add-review', component: CreateComponent},
+  {path: 'Add-review', component: CreateComponent, canActivate: [IsAuthenticatedGuard]},
   {path: 'movies/:recordId', component: DetailsComponent},
-  {path: 'edit/:recordId', component: EditComponent},
-  {path: 'MyProfile', component: ProfileComponent},
+  {path: 'edit/:recordId', component: EditComponent, canActivate: [IsAuthenticatedGuard]},
+  {path: 'MyProfile', component: ProfileComponent, canActivate: [IsAuthenticatedGuard]},
 
 ]
 
