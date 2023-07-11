@@ -229,12 +229,13 @@
     transform: translateY(-20px);
     color: white;
     font-size: 30px;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
   }
   
   .add-a-comment textarea{
-    width: 500px;
-    height: 100px;
+    width: 600px;
+    height: 150px;
+    margin-top: 50px;
   }
   
   
@@ -252,6 +253,7 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    font-size: 20px;
   }
   
   .home{

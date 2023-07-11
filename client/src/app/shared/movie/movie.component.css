@@ -155,7 +155,7 @@ main{
     justify-content: flex-start;
     align-items: center;
     width: 250px;
-    height: 400px;
+    height: 420px;
     background-color: gray;
     opacity: 0.8;
     box-shadow: 0 0 10px #00000070;
@@ -165,9 +165,9 @@ main{
   .record-background img{
     flex: 0 3 20%;
     width: 200px;
-    min-height: 200px;
-    max-height: 200px;
-    object-fit: cover;
+    min-height: 250px;
+    max-height: 250px;
+    object-fit:fill;
     transition: 0.5s ease;
     padding: 0;
     margin: 0;
@@ -196,15 +196,15 @@ main{
   
   
   .text{
-    transform: translate(0px, -265px);
+    transform: translate(0px, -299px);
     font-size: 1.2rem;
     top: 0;
     left: 0;
     /* background: rgb(74, 67, 92); */
     background: #CA2313;
     width: 220px;
-    height: 200px;
-    padding: 7rem 0;
+    height: 275px;
+    padding: 8rem 0;
     display: flex;
     justify-content: center;
     flex-direction: column;

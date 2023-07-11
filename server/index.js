@@ -21,7 +21,8 @@ mongoose.set('strictQuery', false);
 const connect = async () => {
   try {
     mongoose.connect(
-      "mongodb+srv://newAniUser:AniTest@cluster0.vn3iex9.mongodb.net/moviebuffs?retryWrites=true&w=majority",{}
+      // "mongodb+srv://newAniUser:AniTest@cluster0.vn3iex9.mongodb.net/moviebuffs?retryWrites=true&w=majority",{}
+      "mongodb+srv://newAniUser:AniTest@cluster0.vn3iex9.mongodb.net/moviebuffs",{}
     );
     console.log(`Connected to MongoDB`)
   } catch (error) {
