@@ -6,7 +6,7 @@
   
   .details-page > h1 {
   
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
     color: white;
     margin-top: -1em;
@@ -34,8 +34,8 @@
   
   .details-card-image > img {
     width: 460px;
-    height: 500px;
-    object-fit: cover;
+    height: 600px;
+    object-fit:fill;
     position: absolute;
     right: 0;
     left: 0;
@@ -66,7 +66,7 @@
   }
   
   .details-card-text > h2 {
-    font-size: 23px;
+    font-size: 35px;
     text-align: center;
     line-height: 1.6em;
     word-wrap: break-word;
@@ -76,7 +76,7 @@
   }
   
   .details-card-text > h3 {
-    font-size: 14.5px;
+    font-size: 20px;
     line-height: 2em;
     word-wrap: break-word;
     padding-left: 10px;
@@ -101,7 +101,7 @@
     border: none;
     padding: 5px;
     outline: none;
-    font-size: 15.3px;
+    font-size: 25px;
     width: 250px;
     font-weight: 600;
     margin-top: 1.3em;
@@ -122,7 +122,7 @@
     border: none;
     padding: 5px;
     outline: none;
-    font-size: 15.3px;
+    font-size: 25px;
     width: 250px;
     font-weight: 600;
     margin-top: 1.3em;
@@ -140,12 +140,13 @@
   
   .btn-edit,
   .btn-delete,
-  .btn-wish {
+  .btn-wish,
+  .btn-vote {
     color: #fff;
     border: none;
     padding: 9px;
     outline: none;
-    font-size: 15.3px;
+    font-size: 20px;
     font-weight: 600;
     margin-top: 40px;
     border-radius: 9px;
@@ -164,7 +165,7 @@
     border: none;
     padding: 9px;
     outline: none;
-    font-size: 15.3px;
+    font-size: 20px;
     font-weight: 600;
     margin-top: 0px;
     border-radius: 9px;
@@ -227,6 +228,8 @@
     position: absolute;
     transform: translateY(-20px);
     color: white;
+    font-size: 30px;
+    padding-bottom: 30px;
   }
   
   .add-a-comment textarea{
@@ -330,7 +333,7 @@
     overflow:hidden;
     white-space:nowrap;
     cursor:pointer;
-    font-size:30px;
+    font-size:35px;
     color:#ccc;
 }
 .rate:not(:checked) > label:before {
@@ -354,6 +357,7 @@
 .rate-label{
     color: white;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .logged-users{

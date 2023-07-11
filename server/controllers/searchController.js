@@ -62,13 +62,6 @@ router.post("/", async (req, res) => {
     }
 
 
-    if(year === "all" && genres ==="all" && searchItem === "all"){
-        const result = await recordManager.getbyRPM(rpm).clone()
-        console.log(result)
-        console.log(rpm)
-        return res.json(result)
-    }
-
 //------Combinations---------------------
 
     //------------ Combinations with SearchItem

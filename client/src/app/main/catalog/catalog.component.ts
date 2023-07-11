@@ -36,9 +36,10 @@ export class CatalogComponent implements OnInit {
     for(let item of this.allPostsCatalog){
       let likes = item.likes;
       let liked = item.likedBy?.length;
-      this.raiting = (likes / liked).toFixed(1);
-      item.raiting = this.raiting
+      this.raiting = (likes / liked).toFixed(2);
+      item.raiting = this.raiting.toFixed(2)
       console.log(this.allPostsCatalog);
+      console.log(item.raiting);
     }
 
     this.searchForm = new FormGroup({

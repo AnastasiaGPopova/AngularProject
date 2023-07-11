@@ -43,6 +43,7 @@ export class DetailsComponent implements OnInit, OnChanges {
     rate: new FormControl(''),
   });
   allComments: Comment[] = [];
+  currenUser = localStorage.getItem("userId")
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe((params) => {
@@ -84,7 +85,7 @@ export class DetailsComponent implements OnInit, OnChanges {
       ) {
         let likes: number = this.currentPost.likes;
         let liked: number = this.currentPost.likedBy?.length;
-        this.raiting = (likes / liked).toFixed(1);
+        this.raiting = (likes / liked).toFixed(2);
         this.currentPost.raiting = this.raiting
         console.log(this.raiting);
       } else {
