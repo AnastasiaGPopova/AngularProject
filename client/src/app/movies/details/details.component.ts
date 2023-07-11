@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api-service.service';
 import { AuthServiceService } from 'src/app/services/authservice.service';
 import { Post, Comment } from 'src/app/types/api-types';
+import { DetailService } from './detailsService/detail.service';
 
 @Component({
   selector: 'app-details',
@@ -16,7 +17,8 @@ export class DetailsComponent implements OnInit, OnChanges {
     private route: ActivatedRoute,
     public authService: AuthServiceService,
     private router: Router,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private detailService: DetailService
   ) {}
 
   private sub: any;
@@ -96,7 +98,6 @@ export class DetailsComponent implements OnInit, OnChanges {
   }
 
   wishFunc() {
-    debugger
     let currentUser: string | null = localStorage.getItem('userId');
     this.currentPost.wishingList?.push(currentUser);
     this.currentPost = {
@@ -126,8 +127,10 @@ export class DetailsComponent implements OnInit, OnChanges {
 
     let oldValue: any = Number(this.currentPost.likes);
     let newValue = oldValue + Number(raitingStar);
+    console.log(newValue)
     this.currentPost.likedBy?.push(currentUser);
     let newRaiting = newValue / this.currentPost.likedBy.length
+    console.log(newRaiting)
     this.currentPost = {
       ...this.currentPost,
       likes: newValue,
@@ -164,7 +167,7 @@ export class DetailsComponent implements OnInit, OnChanges {
     this.apiService.addComment(newComment).subscribe((status) => {
       console.log(status);
 
-      this.allComments = [...this.allComments, status];
+      this.allComments = [status,...this.allComments];
       this.cd.detectChanges();
       this.apiService._refreshNeeded$.next(status);
     });
