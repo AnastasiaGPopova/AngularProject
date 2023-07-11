@@ -20,7 +20,7 @@ export class EditComponent implements OnInit {
   creationForm!: FormGroup;
   sub:any
   id:any
-  errors:any
+  errors: any =""
 
   currentPost: Post = {
     movieName: "",
@@ -40,8 +40,6 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-    
   this.creationForm  = new FormGroup({
     movie: new FormControl(""),
     cast: new FormControl(""),
@@ -61,28 +59,27 @@ export class EditComponent implements OnInit {
 
     this.apiService.getItemById(this.id).subscribe((post) => {
       this.currentPost = post
-      console.log(this.currentPost.genre)
-      console.log(this.currentPost.movieName)
+
+      this.getGenres(this.currentPost.genre)
+
+      this.creationForm.setValue({
+        movie:  this.currentPost.movieName,
+        cast: this.currentPost.artist,
+        director: this.currentPost.director,
+        year: this.currentPost.year,
+        imageUrl: this.currentPost.imageUrl,
+        description: this.currentPost.description,
+     })
+
      })  
-
-
-    //  this.getGenres(this.currentPost.genre)
-
-     this.creationForm.setValue({
-       movie:  this.currentPost.movieName,
-       cast: this.currentPost.artist,
-       director: this.currentPost.director,
-       year: this.currentPost.year,
-       imageUrl: this.currentPost.imageUrl,
-       description: this.currentPost.description,
-    })
-
 }
 
 
 getGenres(options:any | null){
 
-console.log(options)
+  console.log(options)
+
+
   {
     this._genreList=[
       {id:1, name: "Drama", isSelected: options.includes("Drama")},

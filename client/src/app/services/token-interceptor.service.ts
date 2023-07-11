@@ -19,21 +19,25 @@ export class TokenInterceptorService implements HttpInterceptor{
       })
     }
 
-    return next.handle(req).pipe(
-      catchError(errorData => {
-        if(errorData.status === 401){
-          this.authService.logout()
-        }
+    return next.handle(req)
 
-        if(errorData.message.includes("Unknown Error")){
-          alert(`Our Server is currently down! Please try again later!`)
-        } else {
-          alert(errorData.message)
-        }
 
-        return throwError(errorData)
-      })
-    )
+
+    // return next.handle(req).pipe(
+    //   catchError(errorData => {
+    //     if(errorData.status === 401){
+    //       this.authService.logout()
+    //     }
+
+    //     if(errorData.message.includes("Unknown Error")){
+    //       alert(`Our Server is currently down! Please try again later!`)
+    //     } else {
+    //       alert(errorData.message)
+    //     }
+
+    //     return throwError(errorData)
+    //   })
+    // )
   }
 }
 
