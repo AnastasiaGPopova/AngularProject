@@ -15,8 +15,8 @@
 
                 <div class="edit-edit" *ngIf="apiService.isOwner$ | async ; else elseBlock">
                 <!-- Only for registered user and author of the review -->
-                    <a href="/edit/{{currentPost._id}}"class="btn-edit">Edit</a>
-                    <button class="btn-delete" (click)="onDeleteClick()">Delete TEST!</button>
+                    <a routerLink="/edit/{{currentPost._id}}"class="btn-edit">Edit</a>
+                    <button class="btn-delete" (click)="onDeleteClick()">Delete</button>
                 </div>
 
                 <ng-template #elseBlock>

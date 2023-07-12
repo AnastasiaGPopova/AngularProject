@@ -1,10 +1,17 @@
 
 <main>
 
-    <div class="top-section">
+    <div class="top-section" *ngIf="allPosts.length !=0; else elseBlock">
         <!-- <app-record [postssss]="allPosts"/> -->
         <app-movie [postssss]="allPosts"></app-movie>
     </div>
+
+    <ng-template class="top-section" #elseBlock>
+        <app-no-entries></app-no-entries>
+
+    </ng-template>
+
+
 
     <div class="bottom-section">
         <div class="left-bottom">

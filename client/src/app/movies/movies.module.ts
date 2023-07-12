@@ -6,6 +6,7 @@ import { EditComponent } from './edit/edit.component';
 import { CommentComponent } from './comment/comment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -20,7 +21,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [DetailsComponent, CreateComponent, EditComponent, CommentComponent]
 })

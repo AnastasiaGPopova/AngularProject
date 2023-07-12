@@ -1,18 +1,18 @@
 <nav class="navbar">
     <img src="" alt="" class="logo">
     <ul *ngIf="authService.isLoggedIn$ | async; else elseBlock">
-        <li> <a href="/Home">Home</a></li>
-        <li> <a href="/Catalog">Catalog</a></li>              
-        <li > <a href="/Add-review">Add review</a></li>
-        <li> <a href="/MyProfile">My Profile</a></li>
-        <li> <a href="#" (click)="logoutClick()">Logout</a></li>
+        <li> <a routerLink="/Home">Home</a></li>
+        <li> <a routerLink="/Catalog">Catalog</a></li>              
+        <li > <a routerLink="/Add-review">Add review</a></li>
+        <li> <a routerLink="/MyProfile">My Profile</a></li>
+        <li> <a routerLink="#" (click)="logoutClick()">Logout</a></li>
     </ul>
       <ng-template #elseBlock>
       <ul>
-        <li> <a href="/Home">Home</a></li>
-        <li> <a href="/Catalog">Catalog</a></li>  
-        <li> <a href="/Login">Login</a></li>
-        <li> <a href="/Register">Register</a></li>
+        <li> <a routerLink="/Home">Home</a></li>
+        <li> <a routerLink="/Catalog">Catalog</a></li>  
+        <li> <a routerLink="/Login">Login</a></li>
+        <li> <a routerLink="/Register">Register</a></li>
       </ul>
       </ng-template>
 </nav>

@@ -59,10 +59,15 @@
         </div>
 
 
-        <div class="catalog">
+        <div class="catalog" *ngIf="allPostsCatalog.length !=0; else elseBlock">
             <app-movie [postssss]="allPostsCatalog"></app-movie>
 
         </div>
+    
+        <ng-template class="catalog" #elseBlock>
+            <app-no-entries></app-no-entries>
+    
+        </ng-template>
     
 </section>
 </main>

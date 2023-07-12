@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/authservice.service';
 
 
@@ -9,7 +10,8 @@ import { AuthServiceService } from 'src/app/services/authservice.service';
 })
 export class NavigationComponent implements OnInit{
 
-  constructor(public authService: AuthServiceService, public cdTest: ChangeDetectorRef){}
+  constructor(public authService: AuthServiceService, public cdTest: ChangeDetectorRef,
+    private router: Router,){}
 
 
 
@@ -28,6 +30,8 @@ export class NavigationComponent implements OnInit{
   logoutClick(){
     this.authService.logout()
     this.cdTest.detectChanges()
+    this.router.navigate(['/Home']);
+
   }
   title = 'project-2';
 }

@@ -1,0 +1,50 @@
+.norecord{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin: 6rem 3rem;
+}
+
+
+.createbutton{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    z-index: 0;
+    font-weight: bold;
+    border: 3px solid #CA2313;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-size: 16px;
+  }
+  
+  .noentries{
+    background: #CA2313;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+  }
+  
+  
+  .createbutton:hover .noentries{
+    width: 100%;
+  }
+  
+  .createbutton:hover{
+    border: none
+  }
+  
+  /* .norecord{
+    text-align: right;
+    transform: translateY(50px);
+  } */
