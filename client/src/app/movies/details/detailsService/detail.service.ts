@@ -34,32 +34,54 @@ export class DetailService {
     };
   
     id: any;
-    // raiting: any = 0;
+    raiting: any = 0;
     voteForm = new FormGroup({
       rate: new FormControl(''),
     });
-    allComments: Comment[] = [];
 
-    getRaiting(currentPost:Post){
-      let raiting:string | number
 
-      if (
-        currentPost.likes != 0 &&
-        currentPost.likedBy?.length != 0 &&
-        currentPost.likes != undefined &&
-        currentPost.likedBy?.length != undefined
-      ) {
-        let likes: number = this.currentPost.likes;
-        let liked: number = this.currentPost.likedBy?.length;
-        raiting = (likes / liked).toFixed(1);
-        currentPost.raiting = Number(raiting)
-        console.log(raiting);
-      } else {
-        raiting = 0;
-      }
 
-      return raiting
 
+    getCurrent(id:any){
+
+      const res = this.apiService.getItemById(id).subscribe((post) => {
+        this.apiService.isOwner$.subscribe((status) => {
+          console.log('is owner' + ' ' + status);
+          this.apiService._refreshNeeded$.next(status);
+        });
+  
+        this.apiService.isWished$.subscribe((status) => {
+          console.log('is wished' + ' ' + status);
+          this.apiService._refreshNeeded$.next(status);
+        });
+  
+        this.apiService.isVoted$.subscribe((status) => {
+          console.log('is voted' + ' ' + status);
+          this.apiService._refreshNeeded$.next(status);
+        });
+  
+        this.apiService._refreshNeeded$.next(post);
+        this.currentPost = post;
+        console.log(post);
+  
+        if (
+          this.currentPost.likes != 0 &&
+          this.currentPost.likedBy?.length != 0 &&
+          this.currentPost.likes != undefined &&
+          this.currentPost.likedBy?.length != undefined
+        ) {
+          let likes: number = this.currentPost.likes;
+          let liked: number = this.currentPost.likedBy?.length;
+          this.raiting = (likes / liked).toFixed(2);
+          this.currentPost.raiting = this.raiting
+          console.log(this.raiting);
+        } else {
+          this.raiting = 0;
+        }
+      });
+      console.log(res)
+
+      return this.currentPost
     }
 
 

@@ -57,41 +57,45 @@ export class DetailsComponent implements OnInit, OnChanges {
       this.apiService._refreshNeeded$.next(comments);
     });
 
-    this.apiService.getItemById(this.id).subscribe((post) => {
-      this.apiService.isOwner$.subscribe((status) => {
-        console.log('is owner' + ' ' + status);
-        this.apiService._refreshNeeded$.next(status);
-      });
+      let post = this.detailService.getCurrent(this.id)
+      this.currentPost = post
+      console.log(this.currentPost)
 
-      this.apiService.isWished$.subscribe((status) => {
-        console.log('is wished' + ' ' + status);
-        this.apiService._refreshNeeded$.next(status);
-      });
+    // this.apiService.getItemById(this.id).subscribe((post) => {
+    //   this.apiService.isOwner$.subscribe((status) => {
+    //     console.log('is owner' + ' ' + status);
+    //     this.apiService._refreshNeeded$.next(status);
+    //   });
 
-      this.apiService.isVoted$.subscribe((status) => {
-        console.log('is voted' + ' ' + status);
-        this.apiService._refreshNeeded$.next(status);
-      });
+    //   this.apiService.isWished$.subscribe((status) => {
+    //     console.log('is wished' + ' ' + status);
+    //     this.apiService._refreshNeeded$.next(status);
+    //   });
 
-      this.apiService._refreshNeeded$.next(post);
-      this.currentPost = post;
-      console.log(post);
+    //   this.apiService.isVoted$.subscribe((status) => {
+    //     console.log('is voted' + ' ' + status);
+    //     this.apiService._refreshNeeded$.next(status);
+    //   });
 
-      if (
-        this.currentPost.likes != 0 &&
-        this.currentPost.likedBy?.length != 0 &&
-        this.currentPost.likes != undefined &&
-        this.currentPost.likedBy?.length != undefined
-      ) {
-        let likes: number = this.currentPost.likes;
-        let liked: number = this.currentPost.likedBy?.length;
-        this.raiting = (likes / liked).toFixed(2);
-        this.currentPost.raiting = this.raiting
-        console.log(this.raiting);
-      } else {
-        this.raiting = 0;
-      }
-    });
+    //   this.apiService._refreshNeeded$.next(post);
+    //   this.currentPost = post;
+    //   console.log(post);
+
+    //   if (
+    //     this.currentPost.likes != 0 &&
+    //     this.currentPost.likedBy?.length != 0 &&
+    //     this.currentPost.likes != undefined &&
+    //     this.currentPost.likedBy?.length != undefined
+    //   ) {
+    //     let likes: number = this.currentPost.likes;
+    //     let liked: number = this.currentPost.likedBy?.length;
+    //     this.raiting = (likes / liked).toFixed(2);
+    //     this.currentPost.raiting = this.raiting
+    //     console.log(this.raiting);
+    //   } else {
+    //     this.raiting = 0;
+    //   }
+    // });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
