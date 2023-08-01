@@ -196,7 +196,7 @@ main{
   
   
   .text{
-    transform: translate(0px, -299px);
+    transform: translate(0px, -301px);
     font-size: 1.2rem;
     top: 0;
     left: 0;
@@ -340,31 +340,33 @@ main{
   .create-button:hover .no-entries{
     width: 100%;
   }
-  
-  .create-button:hover{
-    border: none;
-    background-color: #CA2313;
-  }
+
   
   .no-record{
     text-align: right;
   }
   
   
+ 
+
   
-  .buttonReset{
-    width: 50px;
-    padding: 15px 0;
-    text-align: center;
-    margin: 20px 10px;
-    border-radius: 25px;
-    z-index: 0;
-    font-weight: bold;
-    border: 3px solid #5aa8a0;
-    background: transparent;
+  .btn-vote{
     color: #fff;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  
+    border: none;
+    padding: 9px;
+    outline: none;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 0px;
+    border-radius: 9px;
+    -webkit-box-shadow: 0 0 20px rgba(253, 253, 253, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    -webkit-transition: 300ms ease-in-out;
+    -o-transition: 200ms ease-in-out;
+    transition: 200ms ease-in-out;
+    border-color: rgb(231, 179, 179);
+    border-style: outset;
+    border-width: 3px;
+    background-color: #da4c06;
+
   }

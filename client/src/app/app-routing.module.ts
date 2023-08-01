@@ -9,6 +9,7 @@ import { CreateComponent } from './movies/create/create.component';
 import { DetailsComponent } from './movies/details/details.component';
 import { EditComponent } from './movies/edit/edit.component';
 import { IsAuthenticatedGuard } from './is-authenticated.guard';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 
 const appRoute: Routes = [
@@ -21,6 +22,7 @@ const appRoute: Routes = [
   {path: 'movies/:recordId', component: DetailsComponent},
   {path: 'edit/:recordId', component: EditComponent, canActivate: [IsAuthenticatedGuard]},
   {path: 'MyProfile', component: ProfileComponent, canActivate: [IsAuthenticatedGuard]},
+  {path: '**', component: NotFoundComponent},
 
 ]
 

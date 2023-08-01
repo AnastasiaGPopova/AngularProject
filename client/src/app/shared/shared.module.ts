@@ -5,6 +5,7 @@ import { ImdbComponent } from './imdb/imdb.component';
 import { MovieComponent } from './movie/movie.component';
 import { NoEntriesComponent } from './no-entries/no-entries.component';
 import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -13,12 +14,13 @@ import { RouterModule } from '@angular/router';
     ErrorComponent,
     ImdbComponent,
     MovieComponent,
-    NoEntriesComponent
+    NoEntriesComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [ErrorComponent, ImdbComponent, MovieComponent, NoEntriesComponent]
+  exports: [ErrorComponent, ImdbComponent, MovieComponent, NoEntriesComponent, NotFoundComponent]
 })
 export class SharedModule { }

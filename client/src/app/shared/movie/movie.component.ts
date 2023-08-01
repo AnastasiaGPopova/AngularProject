@@ -8,6 +8,7 @@ import { Post } from 'src/app/types/api-types';
 })
 export class MovieComponent implements OnInit{
   @Input() postssss: Post[] = []
+  // @Input() wishes:Post[] = []
 
   ngOnInit(): void {
     console.log(this.postssss)
