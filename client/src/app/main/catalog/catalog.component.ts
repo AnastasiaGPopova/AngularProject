@@ -50,7 +50,7 @@ export class CatalogComponent implements OnInit {
     this.getYearOptions();
   }
 
-  test = 0
+
 
   getGenreOptions() {
     this._genreOptions = [
