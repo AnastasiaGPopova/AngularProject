@@ -50,6 +50,8 @@ export class CatalogComponent implements OnInit {
     this.getYearOptions();
   }
 
+  test = 0
+
   getGenreOptions() {
     this._genreOptions = [
       { id: 0, name: '', isSelected: false },
@@ -156,7 +158,6 @@ export class CatalogComponent implements OnInit {
 
 
   sortAlphabetical(){
-
       return this.allPostsCatalog.sort((a,b) => {
         return  a.movieName > b.movieName ? 1 : -1
     })
