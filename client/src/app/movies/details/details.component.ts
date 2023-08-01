@@ -39,6 +39,7 @@ export class DetailsComponent implements OnInit, OnChanges {
 
   id: any;
   raiting: any = 0;
+
   voteForm = new FormGroup({
     rate: new FormControl(''),
   });
@@ -57,9 +58,10 @@ export class DetailsComponent implements OnInit, OnChanges {
       this.apiService._refreshNeeded$.next(comments);
     });
 
-      // let post = this.detailService.getCurrent(this.id)
-      // this.currentPost = post
+     
+      // this.currentPost = this.detailService.getCurrent(this.id)
       // console.log(this.currentPost)
+      // this.cd.detectChanges()
 
 
 
@@ -138,13 +140,8 @@ export class DetailsComponent implements OnInit, OnChanges {
     }
 
     console.log(raitingStar);
-      
-
       this.currentPost = this.detailService.voteFuncService(currentUser, this.currentPost, raitingStar, this.id)
      
-      this.cd.detectChanges()
-      this.apiService.refreshNeeded.subscribe();
-      this.ngOnInit();
 
     // let oldValue: any = Number(this.currentPost.likes);
     // let newValue = oldValue + Number(raitingStar);
@@ -174,6 +171,9 @@ export class DetailsComponent implements OnInit, OnChanges {
       window.alert('Write your comment first!');
       return;
     }
+
+    // this.allComments = this.detailService.addANewCommentService(inputText, currentUser, this.id, this.allComments)
+
 
     let newComment: Comment = {
       ownerComment: currentUser,

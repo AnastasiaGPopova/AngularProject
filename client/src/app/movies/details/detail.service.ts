@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api-service.service';
 import { AuthServiceService } from 'src/app/services/authservice.service';
-import { Post } from 'src/app/types/api-types';
+import { Post, Comment } from 'src/app/types/api-types';
 
 @Injectable({
   providedIn: 'root'
@@ -129,6 +129,28 @@ export class DetailService {
     }
 
 
+    addANewCommentService(inputText: HTMLTextAreaElement, currenUser:string | null, postId:any, allComments: Comment[]) {
+  
+      let newComment: Comment = {
+        ownerComment: currenUser,
+        content: inputText.value,
+        recordId: postId,
+        createdAt: null,
+        updatedAt: null,
+        __v: null,
+        _id: null,
+      };
+  
+      this.apiService.addComment(newComment).subscribe((status) => {
+        console.log(status);
+  
+        allComments = [status,...allComments];
+        this.apiService._refreshNeeded$.next(status);
+      });
+  
+      inputText.value = '';
+      return allComments
+    }
 
 
 
