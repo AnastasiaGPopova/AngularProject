@@ -82,6 +82,7 @@ export class ApiService {
   getItemById(id: string) {
     return this.http.get<Post>(environment.appUrl + '/movies/' + id).pipe(
       tap((response: any) => {
+        console.log(response)
         this._refreshNeeded$.next('test');
         let currentUser = localStorage.getItem('userId');
         if (response._ownerId._id === currentUser) {

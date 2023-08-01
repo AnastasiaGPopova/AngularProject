@@ -31,13 +31,14 @@ export class DetailService {
       wishingList: null,
       createdAt: null,
       updatedAt: null,
+      raiting: 0
     };
   
-    id: any;
-    raiting: any = 0;
-    voteForm = new FormGroup({
-      rate: new FormControl(''),
-    });
+    // id: any;
+    // raiting: any = 0;
+    // voteForm = new FormGroup({
+    //   rate: new FormControl(''),
+    // });
 
 
 
@@ -72,16 +73,59 @@ export class DetailService {
         ) {
           let likes: number = this.currentPost.likes;
           let liked: number = this.currentPost.likedBy?.length;
-          this.raiting = (likes / liked).toFixed(2);
-          this.currentPost.raiting = this.raiting
-          console.log(this.raiting);
+          let raitingNew = (likes / liked).toFixed(2);
+          this.currentPost.raiting = Number(raitingNew)
         } else {
-          this.raiting = 0;
+          this.currentPost.raiting = 0;
         }
       });
       console.log(res)
 
       return this.currentPost
+    }
+
+
+    wishFuncService(currentUser:string | null, currentPost: Post, postId:any) {
+
+      currentPost.wishingList?.push(currentUser);
+      currentPost = {
+        ...currentPost,
+        wishingList: currentPost.wishingList,
+      };
+      let newBody = { ...currentPost };
+  
+      this.apiService.getWished(postId, newBody).subscribe((update) => {
+        this.apiService.isWished$.subscribe();
+        this.apiService.refreshNeeded.subscribe();
+        console.log(update);
+      });
+    }
+
+
+
+
+    voteFuncService(currentUser: string | null, currentPost:Post, raitingStar: any, postId:any) {
+  
+      let oldValue: any = Number(currentPost.likes);
+      let newValue = oldValue + Number(raitingStar);
+      console.log(newValue)
+      currentPost.likedBy?.push(currentUser);
+      let newRaiting = newValue / currentPost.likedBy.length
+      console.log(newRaiting)
+      currentPost = {
+        ...currentPost,
+        likes: newValue,
+        likedBy: currentPost.likedBy,
+        raiting: newRaiting
+      };
+      let newBody = { ...currentPost };
+  
+      this.apiService.getVoted(postId, newBody).subscribe((update) => {
+        this.apiService.refreshNeeded.subscribe();
+        this.apiService.isVoted$.subscribe();
+      });
+
+      return currentPost
     }
 
 

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api-service.service';
 import { AuthServiceService } from 'src/app/services/authservice.service';
 import { Post, Comment } from 'src/app/types/api-types';
-import { DetailService } from './detailsService/detail.service';
+import { DetailService } from './detail.service';
 
 @Component({
   selector: 'app-details',
@@ -57,45 +57,49 @@ export class DetailsComponent implements OnInit, OnChanges {
       this.apiService._refreshNeeded$.next(comments);
     });
 
-      let post = this.detailService.getCurrent(this.id)
-      this.currentPost = post
-      console.log(this.currentPost)
+      // let post = this.detailService.getCurrent(this.id)
+      // this.currentPost = post
+      // console.log(this.currentPost)
 
-    // this.apiService.getItemById(this.id).subscribe((post) => {
-    //   this.apiService.isOwner$.subscribe((status) => {
-    //     console.log('is owner' + ' ' + status);
-    //     this.apiService._refreshNeeded$.next(status);
-    //   });
 
-    //   this.apiService.isWished$.subscribe((status) => {
-    //     console.log('is wished' + ' ' + status);
-    //     this.apiService._refreshNeeded$.next(status);
-    //   });
 
-    //   this.apiService.isVoted$.subscribe((status) => {
-    //     console.log('is voted' + ' ' + status);
-    //     this.apiService._refreshNeeded$.next(status);
-    //   });
 
-    //   this.apiService._refreshNeeded$.next(post);
-    //   this.currentPost = post;
-    //   console.log(post);
 
-    //   if (
-    //     this.currentPost.likes != 0 &&
-    //     this.currentPost.likedBy?.length != 0 &&
-    //     this.currentPost.likes != undefined &&
-    //     this.currentPost.likedBy?.length != undefined
-    //   ) {
-    //     let likes: number = this.currentPost.likes;
-    //     let liked: number = this.currentPost.likedBy?.length;
-    //     this.raiting = (likes / liked).toFixed(2);
-    //     this.currentPost.raiting = this.raiting
-    //     console.log(this.raiting);
-    //   } else {
-    //     this.raiting = 0;
-    //   }
-    // });
+    this.apiService.getItemById(this.id).subscribe((post) => {
+      this.apiService.isOwner$.subscribe((status) => {
+        console.log('is owner' + ' ' + status);
+        this.apiService._refreshNeeded$.next(status);
+      });
+
+      this.apiService.isWished$.subscribe((status) => {
+        console.log('is wished' + ' ' + status);
+        this.apiService._refreshNeeded$.next(status);
+      });
+
+      this.apiService.isVoted$.subscribe((status) => {
+        console.log('is voted' + ' ' + status);
+        this.apiService._refreshNeeded$.next(status);
+      });
+
+      this.apiService._refreshNeeded$.next(post);
+      this.currentPost = post;
+      console.log(post);
+
+      if (
+        this.currentPost.likes != 0 &&
+        this.currentPost.likedBy?.length != 0 &&
+        this.currentPost.likes != undefined &&
+        this.currentPost.likedBy?.length != undefined
+      ) {
+        let likes: number = this.currentPost.likes;
+        let liked: number = this.currentPost.likedBy?.length;
+        this.raiting = (likes / liked).toFixed(2);
+        this.currentPost.raiting = this.raiting
+        console.log(this.raiting);
+      } else {
+        this.raiting = 0;
+      }
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -103,20 +107,24 @@ export class DetailsComponent implements OnInit, OnChanges {
   }
 
   wishFunc() {
-    let currentUser: string | null = localStorage.getItem('userId');
-    this.currentPost.wishingList?.push(currentUser);
-    this.currentPost = {
-      ...this.currentPost,
-      wishingList: this.currentPost.wishingList,
-    };
-    let newBody = { ...this.currentPost };
+    let currentUser: string | null= localStorage.getItem('userId');
+    this.detailService.wishFuncService(currentUser, this.currentPost, this.id)
 
-    this.apiService.getWished(this.id, newBody).subscribe((update) => {
-      this.apiService.isWished$.subscribe();
-      this.apiService.refreshNeeded.subscribe();
-      this.cd.detectChanges();
-      console.log(update);
-    });
+
+    // let currentUser: string | null = localStorage.getItem('userId');
+    // this.currentPost.wishingList?.push(currentUser);
+    // this.currentPost = {
+    //   ...this.currentPost,
+    //   wishingList: this.currentPost.wishingList,
+    // };
+    // let newBody = { ...this.currentPost };
+
+    // this.apiService.getWished(this.id, newBody).subscribe((update) => {
+    //   this.apiService.isWished$.subscribe();
+    //   this.apiService.refreshNeeded.subscribe();
+    //   this.cd.detectChanges();
+    //   console.log(update);
+    // });
   }
 
   voteFunc() {
@@ -128,28 +136,36 @@ export class DetailsComponent implements OnInit, OnChanges {
       window.alert('Chose your star!');
       return;
     }
+
     console.log(raitingStar);
+      
 
-    let oldValue: any = Number(this.currentPost.likes);
-    let newValue = oldValue + Number(raitingStar);
-    console.log(newValue)
-    this.currentPost.likedBy?.push(currentUser);
-    let newRaiting = newValue / this.currentPost.likedBy.length
-    console.log(newRaiting)
-    this.currentPost = {
-      ...this.currentPost,
-      likes: newValue,
-      likedBy: this.currentPost.likedBy,
-      raiting: newRaiting
-    };
-    let newBody = { ...this.currentPost };
-
-    this.apiService.getVoted(this.id, newBody).subscribe((update) => {
-      this.apiService.refreshNeeded.subscribe();
-      this.apiService.isVoted$.subscribe();
+      this.currentPost = this.detailService.voteFuncService(currentUser, this.currentPost, raitingStar, this.id)
+     
       this.cd.detectChanges()
+      this.apiService.refreshNeeded.subscribe();
       this.ngOnInit();
-    });
+
+    // let oldValue: any = Number(this.currentPost.likes);
+    // let newValue = oldValue + Number(raitingStar);
+    // console.log(newValue)
+    // this.currentPost.likedBy?.push(currentUser);
+    // let newRaiting = newValue / this.currentPost.likedBy.length
+    // console.log(newRaiting)
+    // this.currentPost = {
+    //   ...this.currentPost,
+    //   likes: newValue,
+    //   likedBy: this.currentPost.likedBy,
+    //   raiting: newRaiting
+    // };
+    // let newBody = { ...this.currentPost };
+
+    // this.apiService.getVoted(this.id, newBody).subscribe((update) => {
+    //   this.apiService.refreshNeeded.subscribe();
+    //   this.apiService.isVoted$.subscribe();
+    //   this.cd.detectChanges()
+    //   this.ngOnInit();
+    // });
   }
 
   addANewComment(inputText: HTMLTextAreaElement) {
