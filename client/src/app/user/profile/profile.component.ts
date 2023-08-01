@@ -50,6 +50,8 @@ export class ProfileComponent implements OnInit{
       this.isFemale =this.currentUser.gender === "female"
     })
 
+    
+
 
     
   }

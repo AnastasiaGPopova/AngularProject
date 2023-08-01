@@ -107,7 +107,6 @@ onchange(){
 
 
 
-
   editSubmit(){
 
    if(this.allGenres.length == 0){

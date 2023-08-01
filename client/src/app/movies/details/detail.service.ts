@@ -143,7 +143,6 @@ export class DetailService {
   
       this.apiService.addComment(newComment).subscribe((status) => {
         console.log(status);
-  
         allComments = [status,...allComments];
         this.apiService._refreshNeeded$.next(status);
       });
