@@ -7,8 +7,8 @@ I. Introduction
 - "MuvieBuffs" project is a web app where people can share their passion for movies.
 - The MEAN (MongoDB, Express, Angular, Node.js) stack project.
  - Deploy: 
-        XXXXXXXXXXXXXXXXXXXXXXXXX
-        - it takes some time to initially load/ -
+        https://profound-wisp-5144be.netlify.app/
+
 
 II. Getting Started
 
