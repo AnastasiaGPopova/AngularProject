@@ -155,7 +155,8 @@ main{
     justify-content: flex-start;
     align-items: center;
     width: 250px;
-    height: 420px;
+    min-height: 250px;
+    max-height: 390px;
     background-color: gray;
     opacity: 0.8;
     box-shadow: 0 0 10px #00000070;
@@ -171,6 +172,7 @@ main{
     transition: 0.5s ease;
     padding: 0;
     margin: 0;
+    padding-bottom: 0.3rem;
   }
   
   .record p{
@@ -180,11 +182,11 @@ main{
     font-size: 1rem;
     padding: 0rem;
     margin: 0;
+    padding-bottom: 0.5rem;
     
   }
   
   .record h5{
-    flex: 0 0 20%;
     text-align: center;
     font-size: 1.2rem;
     opacity: 1;
@@ -196,7 +198,7 @@ main{
   
   
   .text{
-    transform: translate(0px, -301px);
+    transform: translate(0px, -320px);
     font-size: 1.2rem;
     top: 0;
     left: 0;

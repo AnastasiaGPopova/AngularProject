@@ -13,6 +13,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 
 const appRoute: Routes = [
+
   {path: '', component: HomeComponent},
   {path: 'Home', component: HomeComponent},
   {path: 'Catalog', component: CatalogComponent},
