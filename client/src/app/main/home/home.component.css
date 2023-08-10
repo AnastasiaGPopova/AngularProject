@@ -148,7 +148,9 @@ main{
   
   
   .bottom-section .right-bottom{
-    flex: 0 2 40%
+    padding: 0.3rem;
+    flex: 0 2 40%;
+    border: dotted 15px white ;
   }
 
   .bottom-section .left-bottom p{
@@ -178,6 +180,7 @@ main{
   
   .right-bottom h3{
     color: white;
+    font-size: 2rem;
   }
   
   .right-bottom ul{

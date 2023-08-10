@@ -168,7 +168,7 @@ main{
     width: 200px;
     min-height: 250px;
     max-height: 250px;
-    object-fit:fill;
+    object-fit:cover;
     transition: 0.5s ease;
     padding: 0;
     margin: 0;

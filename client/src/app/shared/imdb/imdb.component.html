@@ -1,56 +1,56 @@
 
 
-<div class="container">
-	<table>
-		<thead>
-			<tr>
-				<th>Movie</th>
-				<th>Year</th>
-				<th>Artists</th>
-				<th>Cover</th>
-				<th>Go to imDB</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let item of movies">
-				<td>{{item.movie}}</td>
-				<td>{{item.year}}</td>
-				<td>{{item.stars}}</td>
-				<td><img src={{item.imageUrl}} alt="alt"></td>
-				<td>
-                    <a href={{item.link}} target="_blank" class="buttonReset"><span class="searchAdvanced"></span>Go to...</a>
-                </td>
-			</tr>
-		</tbody>
-	</table>
-</div>
 
-<!-- 
+
+<!-- <div class="container">
+	<ul role="list" *ngFor="let item of movies">
+				<li>{{item.movie}}</li>
+				<li>{{item.year}}</li>
+				<li>{{item.stars}}</li>
+				<li><img src={{item.imageUrl}} alt="alt"></li>
+				<li>
+                    <a href={{item.link}} target="_blank" class="buttonReset"><span class="searchAdvanced"></span>Go to!</a>
+                </li>
+	</ul>
+</div> 
+ -->
+
+
 
 <div class="container">
-	<table>
-		<thead>
-			<tr>
-				<th>Movie</th>
-				<th>Year</th>
-				<th>Artists</th>
-				<th>Cover</th>
-				<th>Go to imDB</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Lalala</td>
-				<td>Lalala</td>
-				<td>Lalala</td>
-				<td>Lalala</td>
-				<td>
-                    <a href="/lala" target="_blank" class="buttonReset"><span class="searchAdvanced"></span>Go to...</a>
-                </td>
-			</tr>
-		</tbody>
-	</table>
+	<ul role="list">
+				<li>lalalalalalala</li>
+				<li>lalalalala</li>
+				<li>lalalalalalala</li>
+				<li><img src="https://m.media-amazon.com/images/I/513binDljWL._AC_UF1000,1000_QL80_.jpg" alt="alt"></li>
+				<li>
+                    <a href="lalalalalalala"target="_blank" class="buttonReset"><span class="searchAdvanced"></span>Go!</a>
+                </li>
+	</ul>
+
+
+	<ul role="list">
+		<li>lalalalalalala lalalalalalala</li>
+		<li>lalalalala</li>
+		<li>lalalalalalala</li>
+		<li><img src="https://m.media-amazon.com/images/I/513binDljWL._AC_UF1000,1000_QL80_.jpg" alt="alt"></li>
+		<li>
+			<a href="lalalalalalala"target="_blank" class="buttonReset"><span class="searchAdvanced"></span>Go!</a>
+		</li>
+    </ul>  
+
+   
+	<ul role="list">
+		<li>lalalalalalala</li>
+		<li>lalalalala</li>
+		<li>lalalalalalala</li>
+		<li><img src="https://m.media-amazon.com/images/I/513binDljWL._AC_UF1000,1000_QL80_.jpg" alt="alt"></li>
+		<li>
+			<a href="lalalalalalala"target="_blank" class="buttonReset"><span class="searchAdvanced"></span>Go!</a>
+		</li>
+    </ul>  
+
 </div> 
 
 
- -->
+
