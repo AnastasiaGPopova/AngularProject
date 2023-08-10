@@ -104,7 +104,7 @@ main{
     border: 3px solid #CA2313;
     background: transparent;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -148,9 +148,9 @@ main{
   
   
   .bottom-section .right-bottom{
-    padding: 0.3rem;
+    padding: 0.5rem;
     flex: 0 2 40%;
-    border: dotted 15px white ;
+    border: dotted 10px white ;
   }
 
   .bottom-section .left-bottom p{
@@ -161,7 +161,7 @@ main{
   
   .bottom-section h1{
     color: white;
-    font-size: 5rem;
+    font-size: 7rem;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-bottom: 0.5rem;
   }
@@ -174,7 +174,7 @@ main{
   .bottom-section p{
     color: white;
     width: 50ch;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     padding-bottom: 1rem;
   }
   
