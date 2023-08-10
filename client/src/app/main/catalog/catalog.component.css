@@ -115,6 +115,14 @@ select {
   font-size: 1.2rem;
 }
 
+.searchWord label {
+  font-size: 1.5rem;
+}
+
+.input-select label {
+  font-size: 1.5rem;
+}
+
 .group-btn{
   display: flex;
   gap: 30px
