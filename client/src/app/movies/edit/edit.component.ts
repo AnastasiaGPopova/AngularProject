@@ -135,14 +135,7 @@ onchange(){
       createdAt: null,
       updatedAt: null
     };
-    console.log(`--------AllFields---------`)
-    console.log(body.movieName)
-    console.log(body.artist)
-    console.log(body.director)
-    console.log(body.year)
-    console.log(body.imageUrl)
-    console.log(body.description)
-    console.log(body.genre)
+
 
 
         const res = this.apiService.editRecord(this.id, body).subscribe((response) =>{
