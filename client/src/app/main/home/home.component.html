@@ -2,7 +2,6 @@
 <main>
 
     <div class="top-section" *ngIf="allPosts.length !=0; else elseBlock">
-        <!-- <app-record [postssss]="allPosts"/> -->
         <app-movie [postssss]="allPosts"></app-movie>
     </div>
 
@@ -25,7 +24,6 @@
 
             <h3><span class="title">Check on </span>IMDb</h3>
             <br>
-            <!-- <app-imdb-table [movies]="allIMDB"></app-imdb-table> -->
             <app-imdb [movies]="allIMDB"></app-imdb>
 
         </div>
