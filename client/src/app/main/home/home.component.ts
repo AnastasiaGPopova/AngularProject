@@ -28,21 +28,21 @@ export class HomeComponent implements OnInit{
         this.allMovies.push(x.movieName)
       })
 
-      // for(let item of this.allMovies){
-      //   this.apiService.imdbSearch(item).subscribe(status=>{
-      //     console.log(status["d"][0])
+      for(let item of this.allMovies){
+        this.apiService.imdbSearch(item).subscribe(status=>{
+          console.log(status["d"][0])
       
-      //     let newMovie = {
-      //       movie: item,
-      //       imageUrl: status["d"][0].i.imageUrl,
-      //       year: status["d"][0].y,
-      //       link: `https://www.imdb.com/title/${status["d"][0].id}/?ref_=fn_al_tt_1`,
-      //       stars: status["d"][0].s
-      //     }
-      //     this.allIMDB.push(newMovie)
-      //   })
+          let newMovie = {
+            movie: item,
+            imageUrl: status["d"][0].i.imageUrl,
+            year: status["d"][0].y,
+            link: `https://www.imdb.com/title/${status["d"][0].id}/?ref_=fn_al_tt_1`,
+            stars: status["d"][0].s
+          }
+          this.allIMDB.push(newMovie)
+        })
 
-      // }
+      }
 
     })
 
