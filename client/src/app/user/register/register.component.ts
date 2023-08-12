@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/authservice.service';
@@ -8,7 +8,7 @@ import { AuthServiceService } from 'src/app/services/authservice.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   constructor(private authService: AuthServiceService, private router: Router){}
 
   errors:[] = []
@@ -21,6 +21,13 @@ export class RegisterComponent {
     gender: new FormControl("")
 
   });
+
+
+  ngOnInit(): void {
+    if(localStorage.getItem('email')){
+      this.router.navigate(['/Home']);
+    }
+  }
 
 
 
