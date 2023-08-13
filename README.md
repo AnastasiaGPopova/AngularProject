@@ -8,6 +8,7 @@ I. Introduction
 - The MEAN (MongoDB, Express, Angular, Node.js) stack project.
  - Deploy: 
         https://profound-wisp-5144be.netlify.app/
+        /it takes about a minute to load the resources from the data base/
 
 
 II. Getting Started
